@@ -1,6 +1,5 @@
 <template>
   <div>
-    <input v-model="data[0][1]" type="number">
     <svg id="graph" :width="width" :height="height">
       <rect
         id="svgIdentifier"
@@ -8,22 +7,26 @@
         y="0"
         :width="width"
         :height="height"
-        fill="#f8f8f8"
+        fill="#eee"
         class="identifier"
       ></rect>
       <g id="data">
         <rect
-          v-for="(item, index) in data"
-          :key="item[0]"
+          v-for="(element, index) in parentData"
+          :key="element.name"
           class="bars"
-          :x="10+index*20"
-          :y="height-item[1]*height/10"
-          width="10"
-          :height="item[1]*height/10"
-          fill="#000090"
+          :x="width*0.05+index*(width-width*0.05)/(parentData.length)"
+          :y="height-element.val*height/10"
+          :width="(width-width*0.05)/(parentData.length)-width*0.05"
+          :height="element.val*height/10"
+          fill="#228"
         ></rect>
       </g>
     </svg>
+    <ul>
+      <li v-for="element in parentData">{{ element.name }}, amount: {{ element.val }}</li>
+    </ul>
+    <p style="font-size:80%;">This component is {{width}}px wide and {{height}}px high</p>
   </div>
 </template>
 
@@ -31,20 +34,22 @@
 // import * as d3 from "d3";
 
 export default {
-  data() {
-    return {
-      message: "Let’s try to make a bar chart",
-      width: 100,
-      height: 200,
-      data: [["Apples", 3], ["Oranges", 5], ["Bananas", 9], ["Avocados", 1]]
-    };
-  },
-  methods: {}
+   name: 'SimpleBarChart',
+  // To use props, they must be declared
+  props: {
+    width: Number,
+    height: Number,
+    parentData: Array
+  }
 };
 </script>
 
 <style scoped>
 rect {
   transition: all 1s;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 </style>

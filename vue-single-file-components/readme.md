@@ -1,5 +1,6 @@
-# Vue, D3 & webpack – Reusable charts!
+# Vue & webpack – Reusable charts!
 
+![Screenshot](./assets/screenshot.jpg)
 The goal of the this workshop is to create reusable so called “single file components” to make reusable D3 charts, combine different graphs without worrying about namespace and have a more organized file structure for complex projects.
 The caveat: learn a few new concepts and a one or two more steps in the workflow.
 
