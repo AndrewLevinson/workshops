@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple Vue Bar Chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"> 
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="bars" :style="`width: ${svgWidth}px;`">
+   
+    <div id="controls">
+      <p>Enter a value to compare</p>
+      <input class="red" v-model="data[0].val" type="number" placeholder="edit me">
+      <input v-model="data[0].name" placeholder="edit me">
+      <input v-model="svgWidth" type="number" placeholder="edit me">
+    </div>
+    <h4>{{ chartTitle }}</h4>
+    <svg :width="svgWidth" :height="svgHeight">
+      <g :transform="`translate(${margin.left}, ${margin.top})`">
+        <rect v-for="(element, index) in data" 
+        :height="height-scale.y(element.val)" 
+        :width="scale.x.bandwidth()" 
+        :x="scale.x(element.name)" 
+        :y="scale.y(element.val)" 
+        :fill="myFill(index)" 
+        />
+        <g v-axis:x="scale" :transform="`translate(${0}, ${height})`"></g>
+        <g v-axis:y="scale"></g>
+        </g>
+    </svg>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
