@@ -162,4 +162,6 @@ Let’s add this inside our **div#app** in the **App.vue file**
 <h2>{{ message }}</h2>
 ```
 
-## A simple
+## A simple bar chart
+
+_Instructions follow_ 
