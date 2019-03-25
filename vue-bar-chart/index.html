@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple Vue Bar Chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    html, input {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      color: #355C7D
+    }
+    .red{
+      color: #C06C84;
+    }
+    #bars {
+      margin: 0 auto;
+    }
+    #controls {
+      text-align: center;
+    }
+    div, rect, path, text, g, line {
+      transition: all 0.4s ease-in-out 0.4s;
+    }
+  </style>
+</head>
+<body>
+  <div id="bars" :style="`width: ${svgWidth}px;`">
+    <div id="controls">
+      <p>Enter a value to compare</p>
+      <input class="red" v-model="data[0].val" type="number" placeholder="edit me">
+      <input v-model="data[0].name" placeholder="edit me">
+      <input v-model="svgWidth" type="number" placeholder="edit me">
+    </div>
+    <svg :width="svgWidth" :height="svgHeight">
+      <g :transform="`translate(${margin.left}, ${margin.top})`">
+        <rect v-for="(element, index) in data" 
+        :height="height-scale.y(element.val)" 
+        :width="scale.x.bandwidth()" 
+        :x="scale.x(element.name)" 
+        :y="scale.y(element.val)" 
+        :fill="myFill(index)" 
+        />
+        <g v-axis:x="scale" :transform="`translate(${0}, ${height})`"></g>
+        <g v-axis:y="scale"></g>
+        </g>
+    </svg>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
