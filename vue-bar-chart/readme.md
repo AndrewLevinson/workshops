@@ -116,7 +116,8 @@ We can make a bar chart with this data already using a rect-element and Vue’s 
 </svg>
 ```
 
-![first bars](./assets/first-bars.jpg)
+![first bars](./assets/first-bars.jpg)  
+
 _And we should see our first bars_
 
 **This is pretty sweet and concise code for a simple bar chart!**  
@@ -137,6 +138,8 @@ Of course everything gets a bit more complicated if we want to integrate D3 and 
   <input class="red" v-model="data[0].val" type="number" placeholder="edit me">
 </div>
 ```
+
+![smalles v-model example](./assets/v-model.jpg)
 
 #### Should be done step by step:
 1. The Vue **computed** object/property offers a pretty concise way of **writing d3 scales**
@@ -172,7 +175,7 @@ _needs a re-write of the rect-attributes of course_
 5. **v-model**, can be introduced here (already affecting scale & axis)
 6. **v-model**, can alter any data of the Vue instance: **resize of the svg element for example!**
 
-_conclude_
+_Conclusion_
 ## Q&A
 
 
