@@ -1,2 +1,2 @@
 # workshops
-Workshops for Major Studio Data Visualization @ Parsons
+Workshops for Major Studio Data Visualization @Parsons
