@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Simple Vue Bar Chart</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Vue Bar Chart</title>
+    <link rel="stylesheet" href="style.css"> <!-- provided some basic styles, which elements are transitioned might be interesting to look at -->
+    <script src="https://d3js.org/d3.v5.min.js"></script> <!-- D3 here -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- and Vue here -->
+  </head>
 <body>
   <!-- This is our container div, that we will reference in our script-->
   <div id="bars" :style="`width: ${svgWidth}px;`">

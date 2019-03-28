@@ -2,6 +2,11 @@
 ![result](./assets/screenshot.jpg)
 _Result_
 
+## Prerequisites
+
+Vue: [Vue is a progressive framework for building user interfaces](https://vuejs.org/v2/guide/)
+D3: [D3.js is a JavaScript library for manipulating documents based on data](https://d3js.org/)
+
 ## Setup
 Let’s start with a simple html and link our libraries:
 
@@ -11,10 +16,9 @@ Let’s start with a simple html and link our libraries:
 <head>
   <meta charset="utf-8">
   <title>Simple Vue Bar Chart</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="style.css"> <!-- provided some basic styles, which elements are transitioned might be interesting to look at -->
+  <script src="https://d3js.org/d3.v5.min.js"></script> <!-- D3 here -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- and Vue here -->
 </head>
 <body>
   <!-- This is our container div, that we will reference in our script-->
