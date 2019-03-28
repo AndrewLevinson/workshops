@@ -1,11 +1,14 @@
 # Create a simple bar chart with Vue & D3
+
+You can find this tutorial [on GitHub](https://github.com/felixbuchholz/workshops/tree/master/vue-bar-chart)
+
 ![result](./assets/screenshot.jpg)
 _Result_
 
 ## Prerequisites
 
-Vue: [Vue is a progressive framework for building user interfaces](https://vuejs.org/v2/guide/)
-D3: [D3.js is a JavaScript library for manipulating documents based on data](https://d3js.org/)
+- Vue: [Vue is a progressive framework for building user interfaces](https://vuejs.org/v2/guide/)
+- D3: [D3.js is a JavaScript library for manipulating documents based on data](https://d3js.org/)
 
 ## Setup
 Let’s start with a simple html and link our libraries:
@@ -179,8 +182,8 @@ _needs a re-write of the rect-attributes of course_
 5. **v-model**, can be introduced here (already affecting scale & axis)
 6. **v-model**, can alter any data of the Vue instance: **resize of the svg element for example!**
 
-_Conclusion_
-## Q&A
+
+**The outline of these last steps is a bit rough, but I also left comments in the code example that hopefully fill the gaps.**
 
 
 
