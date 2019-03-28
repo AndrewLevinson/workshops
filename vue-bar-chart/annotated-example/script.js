@@ -26,7 +26,7 @@ var app = new Vue({
         return "#355C7D"
       }
     }
-  }
+  },
   computed: {
     width() {
       return this.svgWidth - this.margin.left - this.margin.right;
