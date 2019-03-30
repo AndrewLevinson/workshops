@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Simple Vue Bar Chart</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- provided some basic styles, which elements are transitioned might be interesting to look at -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- D3 here -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- and Vue here -->
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Simple Vue Bar Chart</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- provided some basic styles, which elements are transitioned might be interesting to look at -->
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <!-- D3 here -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <!-- and Vue here -->
-</head>
+  <body>
+    <!-- This is our container div, that we will reference in our script-->
+    <div id="bars">
+      <div id="center">
+        <h3>{{ chartTitle }}</h3>
+        <div>
+          <p>Our inputs here</p>
+          <input class="red" type="number" v-model="data[0].val" />
+          <!-- <input type="number" v-model="svgWidth" /> -->
+          <input
+            type="range"
+            min="100"
+            max="500"
+            value="300"
+            v-model="svgWidth"
+          />
+          <select type="dropdown" v-model="myFilter">
+            <option disabled>Filter Data</option>
+            <option value="0" :aria-placeholder="myFilter">> 0</option>
+            <option value="1">> 1</option>
+            <option value="2">> 2</option>
+            <option value="3">> 3</option>
+          </select>
+        </div>
+        <svg :width="svgWidth" :height="svgHeight">
+          <g :transform="`translate(${margin.left}, ${margin.bottom})`">
+            <g v-for="(d, i) in filteredData">
+              <rect
+                :x="scale.x(d.name)"
+                :y="scale.y(d.val)"
+                :width="scale.x.bandwidth()"
+                :height="height - scale.y(d.val)"
+                :name="d.name"
+                :fill="myFill(i)"
+                @mouseover="showLabel = i"
+                @mouseleave="showLabel = null"
+              />
+              <text
+                v-if="showLabel === i"
+                :x="scale.x(d.name) + 10"
+                :y="scale.y(d.val) - 10"
+              >
+                {{ d.val }}
+              </text>
+            </g>
 
-<body>
-  <!-- This is our container div, that we will reference in our script-->
-  <div id="bars">
-    <div id="center">
-      <h3>Let’s start be making this headline data-driven</h3>
+            <g v-axis:x="scale" :transform="`translate(${0}, ${height})`"></g>
+            <g v-axis:y="scale"></g>
+          </g>
+        </svg>
+      </div>
     </div>
-  </div>
-  <!-- It’s important that your script is at the bottom of your body,
+    <!-- It’s important that your script is at the bottom of your body,
   because we need the DOM to be ready-->
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,9 @@
+{
+  "numbers": [
+    { "name": "eins", "val": 1 },
+    { "name": "zwei", "val": 2 },
+    { "name": "drei", "val": 3 },
+    { "name": "vier", "val": 4 },
+    { "name": "fünf", "val": 5 }
+  ]
+}

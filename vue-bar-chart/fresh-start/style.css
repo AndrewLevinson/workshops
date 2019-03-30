@@ -3,11 +3,11 @@ input,
 bars {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
-  color: #355C7D
+  color: #355c7d;
 }
 
 .red {
-  color: #C06C84;
+  color: #c06c84;
 }
 
 #bars {
@@ -25,4 +25,10 @@ text,
 g,
 line {
   transition: all 0.4s ease-in-out 0.4s;
+}
+
+rect:hover {
+  fill: #c06c84;
+  cursor: pointer;
+  transition: fill ease-in-out 0.2s;
 }
